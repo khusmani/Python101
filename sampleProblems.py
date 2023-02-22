@@ -37,3 +37,41 @@ def guessTheNumber():
 
 
 guessTheNumber()
+
+def rockPaperScissor():
+    options = ("Rock", "Paper", "Scissor")
+    playAgain = True
+    while playAgain:
+        rand = random.random();
+        computerChoice = 0;
+        if rand <= 1 / 3:
+            computerChoice = 0
+        elif rand <= 2 / 3:
+            computerChoice = 1
+        else:
+            computerChoice = 2
+
+        userChoice = int(input("Your Choice (0:Rock, 1:Paper, 2:Scissor)? "))
+        # print("{0} {1}".format(computerChoice, userChoice))
+        if computerChoice == userChoice:
+            print("{0} {1}".format("It's a TIE, both chose", options[computerChoice]))
+        elif computerChoice == 0:
+            if userChoice == 1:
+                print("You win, you chose Paper and Computer chose Rock, Paper wins over Rock")
+            elif userChoice == 2:
+                print("You lose, you chose Scissor and Computer chose Rock, Rock wins over Scissor")
+        elif computerChoice == 1:
+            if userChoice == 0:
+                print("You lose, you chose Rock and Computer chose Paper, Paper wins over Rock")
+            elif userChoice == 2:
+                print("You win, you chose Scissor and Computer chose Paper, Scissor wins over Paper")
+        elif computerChoice == 2:
+            if userChoice == 0:
+                print("You win, you chose Rock and Computer chose Scissor, Rock wins over Scissor")
+            elif userChoice == 1:
+                print("You lose, you chose Paper and Computer chose Scissor, Scissor wins over Paper")
+
+        playAgain = bool(input("Play Again? (Y/N) "))
+
+
+rockPaperScissor()
